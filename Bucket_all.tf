@@ -2,6 +2,7 @@ resource "aws_s3_bucket" "bucket-with-only-policy-defined" {
   bucket = "bucket-with-only-policy-defined-name"
 }
 
+
 resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
   bucket = aws_s3_bucket.bucket-with-only-policy-defined.id
   policy =<<POLICY
