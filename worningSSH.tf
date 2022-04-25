@@ -1,4 +1,4 @@
-resource "aws_vpc" "my_vpc" {
+resource "aws_vpc" "my_vpc4" {
   cidr_block = "172.16.0.0/16"
 
   tags = {
@@ -6,8 +6,8 @@ resource "aws_vpc" "my_vpc" {
   }
 }
 
-resource "aws_subnet" "my_subnet" {
-  vpc_id            = aws_vpc.my_vpc.id
+resource "aws_subnet" "my_subnet1" {
+  vpc_id            = aws_vpc.my_vpc4.id
   cidr_block        = "172.16.10.0/24"
   availability_zone = "us-west-2a"
 
@@ -17,7 +17,7 @@ resource "aws_subnet" "my_subnet" {
 }
 
 resource "aws_network_interface" "foo" {
-  subnet_id   = aws_subnet.my_subnet.id
+  subnet_id   = aws_subnet.my_subnet1.id
   private_ips = ["172.16.10.100"]
 
   tags = {
@@ -56,7 +56,7 @@ resource "aws_security_group" "exposed_SG22" {
 
 
 resource "aws_route_table" "example2" {
-  vpc_id = aws_vpc.my_vpc.id
+  vpc_id = aws_vpc.my_vpc4.id
 
   route {
     cidr_block = "0.0.0.0/0"
