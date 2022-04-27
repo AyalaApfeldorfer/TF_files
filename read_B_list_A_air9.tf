@@ -12,7 +12,7 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
       "Effect": "Deny",
       "Principal": "*",
       "Action": "s3:PutObjectACL",
-      "Resource": "arn:aws:s3:::airbnb-a4re-test/*"
+      "Resource": "arn:aws:s3:::airbnb-a4re-test-name/*"
     },
     {
       "Sid": "EnforceTLSOnlyAccess",
@@ -20,8 +20,8 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
       "Principal": "*",
       "Action": "s3:*",
       "Resource": [
-        "arn:aws:s3:::airbnb-a4re-test/*",
-        "arn:aws:s3:::airbnb-a4re-test"
+        "arn:aws:s3:::airbnb-a4re-test-name/*",
+        "arn:aws:s3:::airbnb-a4re-test-name"
       ],
       "Condition": {
         "Bool": {
@@ -36,7 +36,7 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
         "AWS": "arn:aws:iam::010119202973:root"
       },
       "Action": "s3:*",
-      "Resource": "arn:aws:s3:::airbnb-a4re-test",
+      "Resource": "arn:aws:s3:::airbnb-a4re-test-name",
       "Condition": {
         "BoolIfExists": {
           "aws:MultiFactorAuthPresent": "false"
@@ -60,8 +60,8 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
         "s3:GetObject"
       ],
       "Resource": [
-        "arn:aws:s3:::airbnb-a4re-test",
-        "arn:aws:s3:::airbnb-a4re-test/*"
+        "arn:aws:s3:::airbnb-a4re-test-name",
+        "arn:aws:s3:::airbnb-a4re-test-name/*"
       ]
     },
     {
@@ -71,7 +71,7 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
         "AWS": "*"
       },
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::airbnb-a4re-test/*"
+      "Resource": "arn:aws:s3:::airbnb-a4re-test-name/*"
     }
   ]
 }
