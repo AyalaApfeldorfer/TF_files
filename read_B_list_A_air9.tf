@@ -101,3 +101,5 @@ resource "aws_s3_bucket_acl" "acl_for_airbnb-a4re-test" {
       permission = "READ"
     }
   }
+  }
+  }
