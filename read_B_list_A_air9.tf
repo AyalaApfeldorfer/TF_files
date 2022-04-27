@@ -80,25 +80,21 @@ resource "aws_s3_bucket_acl" "acl_for_airbnb-a4re-test" {
   bucket = aws_s3_bucket.airbnb-a4re-test.id
   access_control_policy {
 {
-  "owner": {
-    "displayName": "chriscrollins",
-    "id": "4d8c3db27c67c5167fa0e42fd42cf6c8140426e5446da0690521bd468bdbf2b3"
-  },
-  "grants": [
-    {
-      "grantee": {
-        "displayName": "chriscrollins",
-        "id": "4d8c3db27c67c5167fa0e42fd42cf6c8140426e5446da0690521bd468bdbf2b3",
-        "type": "CanonicalUser"
-      },
-      "permission": "FULL_CONTROL"
-    },
-    {
-      "grantee": {
-        "type": "Group",
-        "uri": "http://acs.amazonaws.com/groups/global/AllUsers"
-      },
-      "permission": "READ"
+  owner {
+    id = "4d8c3db27c67c5167fa0e42fd42cf6c8140426e5446da0690521bd468bdbf2b3"
+  }
+  grant {
+      grantee {
+        id = "4d8c3db27c67c5167fa0e42fd42cf6c8140426e5446da0690521bd468bdbf2b3"
+        type = "CanonicalUser"
+      }
+      permission = "FULL_CONTROL"
     }
-  ]
-}
+  grant {
+      grantee {
+        type = "Group"
+        uri = "http://acs.amazonaws.com/groups/global/AllUsers"
+      }
+      permission = "READ"
+    }
+  }
