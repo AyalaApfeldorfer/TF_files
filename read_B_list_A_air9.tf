@@ -1,8 +1,8 @@
-resource "aws_s3_bucket" "arn:aws:s3:::airbnb-a4re-test" {
-  bucket = "arn:aws:s3:::airbnb-a4re-test-name"
+resource "aws_s3_bucket" "airbnb-a4re-test" {
+  bucket = "airbnb-a4re-test-name"
 }
 resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
-  bucket = aws_s3_bucket.arn:aws:s3:::airbnb-a4re-test.id
+  bucket = aws_s3_bucket.airbnb-a4re-test.id
   policy =<<POLICY
 {
   "Version": "2012-10-17",
@@ -76,8 +76,8 @@ resource "aws_s3_bucket_policy" "policy_for_bucket-with-only-policy-defined" {
   ]
 }
 
-resource "aws_s3_bucket_acl" "acl_for_arn:aws:s3:::airbnb-a4re-test" {
-  bucket = aws_s3_bucket.arn:aws:s3:::airbnb-a4re-test.id
+resource "aws_s3_bucket_acl" "acl_for_airbnb-a4re-test" {
+  bucket = aws_s3_bucket.airbnb-a4re-test.id
   access_control_policy {
 {
   "owner": {
